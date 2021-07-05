@@ -4,12 +4,15 @@
 
 #pragma once
 
+//#define URHO_PATCHED
+
 #include <Urho3D/Core/Object.h>
 
 namespace Urho3D
 {
 	class Engine;
 	class Scene;
+	class Viewport;
 }
 
 // All Urho3D classes reside in namespace Urho3D
@@ -25,13 +28,15 @@ public:
 	Urho3DModule(Context* context, void* window);
 
 	virtual void Setup();
-	virtual void Start();
     	virtual void UrhoFrame();
-	virtual void Stop();
+    	#ifdef URHO_PATCHED
+    	virtual void ReadPixels(unsigned char* data, unsigned int data_length);
+    	#endif
 
 private:
-	SharedPtr<Scene> scene_;
-  	Urho3D::SharedPtr<Urho3D::Engine> engine_;
+	Urho3D::Scene* scene_;
+  	Urho3D::Engine* engine_;
+  	Urho3D::Viewport* viewport_;
 	void* window_ = NULL;
 };
 

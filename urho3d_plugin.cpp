@@ -17,7 +17,7 @@ bool obs_module_load(void)
 	};
 	Urho3D_video.id = "Urho3D";
 	Urho3D_video.type = OBS_SOURCE_TYPE_INPUT;
-	Urho3D_video.output_flags = OBS_SOURCE_VIDEO;
+	Urho3D_video.output_flags = OBS_SOURCE_VIDEO | OBS_SOURCE_CUSTOM_DRAW;
 	Urho3D_video.get_name =
 		Urho3DPlugin::Urho3DPlugin::Urho3DGetName;
 	Urho3D_video.create =

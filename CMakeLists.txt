@@ -39,4 +39,4 @@ setup_library (MODULE)
 
 # Link to OpenCV
 find_package(LibObs REQUIRED)
-target_link_libraries(${TARGET_NAME} pthread ${LIBOBS_LIBRARIES})
+target_link_libraries(${TARGET_NAME} pthread ${LIBOBS_LIBRARIES} glfw)
